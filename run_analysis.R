@@ -20,7 +20,7 @@ installPackages<- function(x){
 }
 
 # set the list of required packages
-required_packages  <- c("reshape2")
+required_packages  <- c("reshape")
 
 # check for the required packages and install missing packages
 lapply(required_packages,installPackages)
@@ -124,7 +124,8 @@ df_subset_activity_names<-merge(df_subset,activity_labels,by.x="classLabel",
 #===============================================================================
 
 # This step was done as part of the data loading to make extraction of mean and
-# standard deviation variable simpler
+# standard deviation variables simpler. See the code book section of the 
+# README.md for information about the variables.
 
 #===============================================================================
 # 5. From the data set in step 4, creates a second, independent tidy data set 
