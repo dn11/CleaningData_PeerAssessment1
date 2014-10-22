@@ -20,7 +20,7 @@ installPackages<- function(x){
 }
 
 # set the list of required packages
-required_packages  <- c("reshape")
+required_packages  <- c("reshape2")
 
 # check for the required packages and install missing packages
 lapply(required_packages,installPackages)
