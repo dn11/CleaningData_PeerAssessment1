@@ -161,7 +161,52 @@ The columns are as follows:
 WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) [factor w/6 levels]
 
 3. **Columns 3-81** contain the means for each of the 79 feature vectors for a 
-particular subject and activity [numeric, bounded between -1 and 1]
+particular subject and activity [numeric, bounded between -1 and 1]:
+
+3.  **timeDomain.BodyAcceleration.Mean.XYZ**: numeric [-1,1]
+4.  **timeDomain.BodyAcceleration.StandardDeviation.XY**: numeric [-1,1]
+5.  **timeDomain.GravityAcceleration.Mean.XYZ**: numeric [-1,1]
+6.  **timeDomain.GravityAcceleration.StandardDeviation.XYZ**: numeric [-1,1]
+7.  **timeDomain.BodyAccelerationJerk.Mean.XYZ**: numeric [-1,1]
+8.  **timeDomain.BodyAccelerationJerk.StandardDeviation.XYZ**: numeric [-1,1]
+9.  **timeDomain.BodyGyroscope.Mean.XYZ**: numeric [-1,1]
+10.  **timeDomain.BodyGyroscope.StandardDeviation.XYZ**: numeric [-1,1]
+11.  **timeDomain.BodyGyroscopeJerk.Mean.XYZ       **: numeric [-1,1]
+12.  **timeDomain.BodyGyroscopeJerk.StandardDeviation.XYZ**: numeric [-1,1]
+13.  **timeDomain.BodyAccelerationMagnitude.Mean**: numeric [-1,1]
+14.  **timeDomain.BodyAccelerationMagnitude.StandardDeviation**: numeric [-1,1]
+15.  **timeDomain.GravityAccelerationMagnitude.Mean**: numeric [-1,1]
+16.  **timeDomain.GravityAccelerationMagnitude.StandardDeviation**: numeric [-1,1]
+17.  **timeDomain.BodyAccelerationJerkMagnitude.Mean**: numeric [-1,1]
+18.  **timeDomain.BodyAccelerationJerkMagnitude.StandardDeviation**: numeric [-1,1]
+19.  **timeDomain.BodyGyroscopeMagnitude.Mean**: numeric [-1,1]
+20.  **timeDomain.BodyGyroscopeMagnitude.StandardDeviation**: numeric [-1,1]
+21.  **timeDomain.BodyGyroscopeJerkMagnitude.Mean**: numeric [-1,1]
+22.  **timeDomain.BodyGyroscopeJerkMagnitude.StandardDeviation**: numeric [-1,1]
+23.  **frequencyDomain.BodyAcceleration.Mean.XYZ**: numeric [-1,1]
+24.  **frequencyDomain.BodyAcceleration.StandardDeviation.XYZ**: numeric [-1,1]
+25.  **frequencyDomain.BodyAcceleration.MeanFrequency.XYZ**: numeric [-1,1]
+26.  **frequencyDomain.BodyAccelerationJerk.Mean.XYZ**: numeric [-1,1]
+27.  **frequencyDomain.BodyAccelerationJerk.StandardDeviation.XYZ**: numeric [-1,1]
+28.  **frequencyDomain.BodyAccelerationJerk.MeanFrequency.XYZ**: numeric [-1,1]
+29.  **frequencyDomain.BodyGyroscope.Mean.XYZ**: numeric [-1,1]
+30.  **frequencyDomain.BodyGyroscope.StandardDeviation.XYZ**: numeric [-1,1]
+31.  **frequencyDomain.BodyGyroscope.MeanFrequency.XYZ**: numeric [-1,1]
+32.  **frequencyDomain.BodyAccelerationMagnitude.Mean**: numeric [-1,1]
+33.  **frequencyDomain.BodyAccelerationMagnitude.StandardDeviation**: numeric [-1,1]
+34.  **frequencyDomain.BodyAccelerationMagnitude.MeanFrequency**: numeric [-1,1]
+35.  **frequencyDomain.BodyBodyAccelerationJerkMagnitude.Mean**: numeric [-1,1]
+36.  **frequencyDomain.BodyBodyAccelerationJerkMagnitude.StandardDeviation**: numeric [-1,1]
+37.  **frequencyDomain.BodyBodyAccelerationJerkMagnitude.MeanFrequency**: numeric [-1,1]
+38.  **frequencyDomain.BodyBodyGyroscopeMagnitude.Mean**: numeric [-1,1]
+39.  **frequencyDomain.BodyBodyGyroscopeMagnitude.StandardDeviation**: numeric [-1,1]
+40.  **frequencyDomain.BodyBodyGyroscopeMagnitude.MeanFrequency**: numeric [-1,1]
+41.  **frequencyDomain.BodyBodyGyroscopeJerkMagnitude.Mean**: numeric [-1,1]
+42.  **frequencyDomain.BodyBodyGyroscopeJerkMagnitude.StandardDeviation**: numeric [-1,1]
+43.  **frequencyDomain.BodyBodyGyroscopeJerkMagnitude.MeanFrequency**: numeric [-1,1]
+
+
+The 3-axial signals in the X, Y and Z directions are denoted with '-XYZ'.
 
 The tidy data set is written to the tidy.txt.
 

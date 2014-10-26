@@ -148,9 +148,50 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <ol style="list-style-type: decimal">
 <li><p><strong>subjectLabel</strong>: an identifier indicating the subject (1, 3, 5, 6, 7, 8, 11, 14, 15, 16, 17, 19, 21, 22, 23, 25, 26, 27, 28, 29, 30) [int]</p></li>
 <li><p><strong>activityName</strong>: a label denoting the activity type (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) [factor w/6 levels]</p></li>
-<li><p><strong>Columns 3-81</strong> contain the means for each of the 79 feature vectors for a particular subject and activity [numeric, bounded between -1 and 1]</p></li>
+<li><p><strong>Columns 3-81</strong> contain the means for each of the 79 feature vectors for a particular subject and activity [numeric, bounded between -1 and 1]:</p></li>
+<li><strong>timeDomain.BodyAcceleration.Mean.XYZ</strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.BodyAcceleration.StandardDeviation.XY</strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.GravityAcceleration.Mean.XYZ</strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.GravityAcceleration.StandardDeviation.XYZ</strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.BodyAccelerationJerk.Mean.XYZ</strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.BodyAccelerationJerk.StandardDeviation.XYZ</strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.BodyGyroscope.Mean.XYZ</strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.BodyGyroscope.StandardDeviation.XYZ</strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.BodyGyroscopeJerk.Mean.XYZ </strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.BodyGyroscopeJerk.StandardDeviation.XYZ</strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.BodyAccelerationMagnitude.Mean</strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.BodyAccelerationMagnitude.StandardDeviation</strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.GravityAccelerationMagnitude.Mean</strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.GravityAccelerationMagnitude.StandardDeviation</strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.BodyAccelerationJerkMagnitude.Mean</strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.BodyAccelerationJerkMagnitude.StandardDeviation</strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.BodyGyroscopeMagnitude.Mean</strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.BodyGyroscopeMagnitude.StandardDeviation</strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.BodyGyroscopeJerkMagnitude.Mean</strong>: numeric [-1,1]</li>
+<li><strong>timeDomain.BodyGyroscopeJerkMagnitude.StandardDeviation</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyAcceleration.Mean.XYZ</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyAcceleration.StandardDeviation.XYZ</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyAcceleration.MeanFrequency.XYZ</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyAccelerationJerk.Mean.XYZ</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyAccelerationJerk.StandardDeviation.XYZ</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyAccelerationJerk.MeanFrequency.XYZ</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyGyroscope.Mean.XYZ</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyGyroscope.StandardDeviation.XYZ</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyGyroscope.MeanFrequency.XYZ</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyAccelerationMagnitude.Mean</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyAccelerationMagnitude.StandardDeviation</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyAccelerationMagnitude.MeanFrequency</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyBodyAccelerationJerkMagnitude.Mean</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyBodyAccelerationJerkMagnitude.StandardDeviation</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyBodyAccelerationJerkMagnitude.MeanFrequency</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyBodyGyroscopeMagnitude.Mean</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyBodyGyroscopeMagnitude.StandardDeviation</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyBodyGyroscopeMagnitude.MeanFrequency</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyBodyGyroscopeJerkMagnitude.Mean</strong>: numeric [-1,1]</li>
+<li><strong>frequencyDomain.BodyBodyGyroscopeJerkMagnitude.StandardDeviation</strong>: numeric [-1,1]</li>
+<li><p><strong>frequencyDomain.BodyBodyGyroscopeJerkMagnitude.MeanFrequency</strong>: numeric [-1,1]</p></li>
 </ol>
-<p>The terms “Mean” or “StandardDeviation”, are added to variables derived from mean and standard deviation estimates.</p>
+<p>The 3-axial signals in the X, Y and Z directions are denoted with ‘-XYZ’. The normalization bounding the variables between -1 and 1 obsures the units.</p>
 <p>The tidy data set is written to the tidy.txt.</p>
 </div>
 </div>
