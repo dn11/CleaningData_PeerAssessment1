@@ -4,7 +4,7 @@
 
 * **CodeBook.md**: information about raw and tidy data sets
 * **README.md**: this file
-* **run_analysis.R**: R script to transform raw data set in a tidy one
+* **run_analysis.R**: R script to transform raw data set into the tidy dataset
 
 ## How to create the tidy data set from the raw data set
 
