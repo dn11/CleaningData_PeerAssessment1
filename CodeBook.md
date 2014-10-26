@@ -160,7 +160,7 @@ The columns are as follows:
 2. **activityName**: a label denoting the activity type (WALKING, WALKING_UPSTAIRS, 
 WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) [factor w/6 levels]
 
-3. **Columns 3-81** contain the means for each of the 79 feature vectors for a 
+**Columns 3-81** contain the means for each of the 79 feature vectors for a 
 particular subject and activity [numeric, bounded between -1 and 1]:
 
 3.  **timeDomain.BodyAcceleration.Mean.XYZ**: numeric [-1,1]
@@ -206,7 +206,8 @@ particular subject and activity [numeric, bounded between -1 and 1]:
 43.  **frequencyDomain.BodyBodyGyroscopeJerkMagnitude.MeanFrequency**: numeric [-1,1]
 
 
-The 3-axial signals in the X, Y and Z directions are denoted with '-XYZ'.
+The 3-axial signals in the X, Y and Z directions are denoted with '-XYZ'. The 
+normalization bounding the variables between -1 and 1 obsures the units.
 
 The tidy data set is written to the tidy.txt.
 
