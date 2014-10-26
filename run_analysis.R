@@ -25,6 +25,9 @@ required_packages  <- c("reshape")
 # check for the required packages and install missing packages
 lapply(required_packages,installPackages)
 
+# load the package
+require("reshape") 
+
 # set the working directory
 setwd("/Users/dgn2/Documents/RStudio/work/Getting and Cleaning Data")
 
@@ -106,8 +109,9 @@ df_all<-rbind(df_train,df_test)
 # 2. Extract only the measurements on the mean and standard deviation for each
 # measurement. 
 #===============================================================================
-# find all of the variable names that contain "mean","Mean" or "std"
-subsetColumnsIndex<-grep("mean|Mean|std",names(df_all))
+# find all of the variable names that contain "mean" or "std". Do not include 
+# "Mean" variables
+subsetColumnsIndex<-grep("mean|std",names(df_all))
 # extract the subset data
 df_subset<-df_all[,c(1:2,subsetColumnsIndex)]
 
@@ -123,9 +127,45 @@ df_subset_activity_names<-merge(df_subset,activity_labels,by.x="classLabel",
 # 4. Appropriately labels the data set with descriptive variable names. 
 #===============================================================================
 
-# This step was done as part of the data loading to make extraction of mean and
-# standard deviation variables simpler. See the code book section of the 
-# README.md for information about the variables.
+# remove parentheses
+names(df_subset_activity_names) <- gsub('\\(|\\)',"",
+                                        names(df_subset_activity_names),
+                                        perl = TRUE)
+# convert to syntactically valid names (i.e., the name should consist of letters, 
+# numbers and dot or underline characters and start with a letter or the dot not 
+# followed by a number)
+names(df_subset_activity_names) <- make.names(names(df_subset_activity_names))
+# expand "Acc" to Acceleration
+names(df_subset_activity_names) <- gsub('Acc',"Acceleration",
+                                        names(df_subset_activity_names))
+# expand Mag to Magnitude
+names(df_subset_activity_names) <- gsub('Mag',"Magnitude",
+                                        names(df_subset_activity_names))
+# variables beginning with "t" are time domain variables
+names(df_subset_activity_names) <- gsub('^t',"timeDomain.",
+                                        names(df_subset_activity_names))
+# variables beginning with "f" are frquency domain variables
+names(df_subset_activity_names) <- gsub('^f',"frequencyDomain.",
+                                        names(df_subset_activity_names))
+# expand Freq to Frequency
+names(df_subset_activity_names) <- gsub('Freq\\.',"Frequency.",
+                                        names(df_subset_activity_names))
+names(df_subset_activity_names) <- gsub('Freq$',"Frequency",
+                                        names(df_subset_activity_names))
+# make uppercase
+names(df_subset_activity_names) <- gsub('\\.mean',".Mean",
+                                        names(df_subset_activity_names))
+# expand "std" to StandardDeviation
+names(df_subset_activity_names) <- gsub('\\.std',".StandardDeviation",
+                                        names(df_subset_activity_names))
+
+# make uppercase
+names(df_subset_activity_names) <- gsub('\\.gravityMean',".GravityMean",
+                                        names(df_subset_activity_names))
+
+# make uppercase
+names(df_subset_activity_names) <- gsub('\\.gravity',".GravityMean",
+                                        names(df_subset_activity_names))
 
 #===============================================================================
 # 5. From the data set in step 4, creates a second, independent tidy data set 
@@ -136,6 +176,10 @@ df_subset_activity_names<-merge(df_subset,activity_labels,by.x="classLabel",
 test<-melt(df_subset_activity_names,id.vars = c("subjectLabel","activityName"))
 # take the mean
 tidy<-cast(subjectLabel + activityName ~ variable,data=test,fun=mean)
+
+# Each variable measured is in one column
+# Each different observation of each variable is in a different row
+# There is one table for each "kind" of data
 
 # write txt file with no row names for upload
 write.table(tidy,file = "Tidy.txt",row.name=FALSE)
