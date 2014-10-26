@@ -158,13 +158,14 @@ names(df_subset_activity_names) <- gsub('\\.mean',".Mean",
 # expand "std" to StandardDeviation
 names(df_subset_activity_names) <- gsub('\\.std',".StandardDeviation",
                                         names(df_subset_activity_names))
-
 # make uppercase
 names(df_subset_activity_names) <- gsub('\\.gravityMean',".GravityMean",
                                         names(df_subset_activity_names))
-
 # make uppercase
 names(df_subset_activity_names) <- gsub('\\.gravity',".GravityMean",
+                                        names(df_subset_activity_names))
+# expand  to Gyroscope
+names(df_subset_activity_names) <- gsub('Gyro',"Gyroscope",
                                         names(df_subset_activity_names))
 
 #===============================================================================
