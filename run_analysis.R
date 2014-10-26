@@ -93,6 +93,7 @@ Y_train <- read.table("./data/UCI HAR Dataset/train/y_train.txt",header=FALSE,
 
 # read the training features data set
 X_train <- read.table("./data/UCI HAR Dataset/train/X_train.txt",header=FALSE)
+
 # add the feature names
 names(X_train) <- features$featureName
 
@@ -104,7 +105,9 @@ df_train<-cbind(df_train,X_train)
 df_test<-cbind(subject_test,Y_test)
 df_test<-cbind(df_test,X_test)
 
+# merge the training and test data sets
 df_all<-rbind(df_train,df_test)
+
 #===============================================================================
 # 2. Extract only the measurements on the mean and standard deviation for each
 # measurement. 
@@ -122,7 +125,8 @@ df_subset<-df_all[,c(1:2,subsetColumnsIndex)]
 # step so we clean them up in the next step)
 df_subset_activity_names<-merge(df_subset,activity_labels,by.x="classLabel",
                                 by.y="classLabel",all=TRUE,sort=FALSE)
-
+# drop the class label
+df_subset_activity_names$classLabel<-NULL
 #===============================================================================
 # 4. Appropriately labels the data set with descriptive variable names. 
 #===============================================================================

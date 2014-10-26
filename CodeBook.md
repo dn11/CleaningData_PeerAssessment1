@@ -1,50 +1,169 @@
-# Getting and Cleaning Data - Peer Assessment 1
-
-describe how the script works
-
-characteristics of a tidy dataset
-reference the paper
-
-code book describing the variables
+# Cook Book
 
 ## Raw Data
+The *Human Activity Recognition Using Smartphones* data set [1,2], collected in
+support of the research outlined in *Human Activity Recognition on Smartphones 
+using a Multiclass Hardware-Friendly Support Vector Machine* [3], was obtained
+from the UCI Machine Learning repository for use in this assignment.
 
-### Collection
+### Data Collection: Study Design
+Experiments were conducted on 30 volunteers within an age bracket of 19-48 years. 
+Each volunteer performed six activities (walking, walking upstairs, walking 
+downstairs, sitting, standing, and laying) wearing a smartphone (Samsung Galaxy S 
+II) on their waist. The embedded smartphone sensors (namely the accelerometer and 
+gyroscope) were used to capture 3-axial linear acceleration and 3-axial angular 
+velocity at a constant rate of 50Hz. Experiments were video-recorded and data was 
+labeled manually.
 
-### Signals
+Experimental data was randomly partitioned into two sets, where 70% of the 
+volunteers were selected for incluson in the "training" data set, and the 
+remaining 30% for inclusion in the "test" data set.
 
-### Data Transformation
+### Preprocessing
+Noise filters were applied to the sensor signals and then sampled in fixed-width 
+sliding windows of 2.56 sec with 50% overlap (128 readings per window). Time 
+domain signals were captured at a constant rate of 50 Hz. They were then 
+filtered using a median filter and a 3rd order low pass Butterworth filter with 
+a corner frequency of 20 Hz to remove noise. A Butterworth low-pass filter with a 
+corner frequency of 0.3 Hz was used to separate the sensor acceleration signal 
+into gravitational and body motion (acceleration) components. Jerk signals were 
+derived from the body linear acceleration and angular velocity. The magnitude of 
+these three-dimensional signals was calculated using the Euclidean norm. The Fast 
+Fourier Transform (FFT) was then applied to a set of these time domain signals 
+to obtain frequency domain signals.
 
-#### Merge training and test sets
+### Feature Selection
 
-#### Extract mean and standard deviation variables
-
-#### Use descriptive activity names
-
-#### Label variables appropriately
+The preprocessed signals were used to create variables of the feature vector for
+pattern:  
 
 
-## Tidy Data
-As laid out in the work of Hadley Wickham, each variable measured appears in one
-column, each different observation of that variable appears in a different row, 
-there is a single "kind" of so there is only one tidy data output. 
+* tBodyAcc-XYZ
+
+* tGravityAcc-XYZ
+
+* tBodyAccJerk-XYZ
+
+* tBodyGyro-XYZ
+
+* tBodyGyroJerk-XYZ
+
+* tBodyAccMag
+
+* tGravityAccMag
+
+* tBodyAccJerkMag
+
+* tBodyGyroMag
+
+* tBodyGyroJerkMag
+
+* fBodyAcc-XYZ
+
+* fBodyAccJerk-XYZ
+
+* fBodyGyro-XYZ
+
+* fBodyAccMag
+
+* fBodyAccJerkMag
+
+* fBodyGyroMag
+
+* fBodyGyroJerkMag
+
+The 3-axial signals in the X, Y and Z directions are denoted with '-XYZ'.
+
+Variables were estimated from these signals: 
+
+* mean(): Mean value
+* std(): Standard deviation
+* mad(): Median absolute deviation 
+* max(): Largest value in array
+* min(): Smallest value in array
+* sma(): Signal magnitude area
+* energy(): Energy measure. Sum of the squares divided by the number of values. 
+* iqr(): Interquartile range 
+* entropy(): Signal entropy
+* arCoeff(): Autorregresion coefficients with Burg order equal to 4
+* correlation(): correlation coefficient between two signals
+* maxInds(): index of the frequency component with largest magnitude
+* meanFreq(): Weighted average of the frequency components to obtain a mean frequency
+* skewness(): skewness of the frequency domain signal 
+* kurtosis(): kurtosis of the frequency domain signal 
+* bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.
+* angle(): Angle between to vectors.
+
+Additional vectors were obtained by averaging the signals in a signal window sample. 
+These were used on the angle() variable:
+
+* gravityMean
+* tBodyAccMean
+* tBodyAccJerkMean
+* tBodyGyroMean
+* tBodyGyroJerkMean
+
+All features were normalized (i.e., bounded between -1 and 1) 
+
+
+## Data Transformation
+A tidy data set [4] is created from the raw data [1][2] by running the R script 
+"run_analysis.R", which proceeds through the following processing steps:
+
+
+#### 1. Merge training and test sets
+The raw data contains subject labels, activity class labels, and feature 
+vectors  - for both training and testing - in separate files. Subject labels 
+identify the subject who performed each activity. Activity class labels indicate 
+the type of activity carried out by each subject and are linked to activity names 
+(i.e.,  walking, walking upstairs, walking downstairs, sitting, standing, and 
+laying) . The subject labels (subject_train.txt, subject_test.txt), the activity 
+class labels (y_train.txt, y_test.txt), and features data sets (X_train.txt, 
+X_test.txt) are merged for both the training and test data sets. The training and 
+test sets are then merged to create a single data set. Variable names are initially 
+assigned their original names (according to those found in features.txt). 
+
+
+#### 2. Extract mean and standard deviation variables
+The estimated mean and standard deviation variables (i.e., variables with labels 
+that contain "mean" or "std" respectively) are extracted from the merged data set. 
+Variables that contain "Mean" are excluded.
+
+
+#### 3. Use descriptive activity names
+A new column is added to the data set with the activity name. The activity 
+class label is used to link the activity name with the activity class labels in
+the merged data set (using the 'activity_labels.txt').
+
+
+#### 4. Label variables appropriately
+Labels given by the original data collectors are altered to create syntactically 
+valid names in R and to provide a clearer description of the variable.
+
+
+#### 5. Create tidy data set
+As laid out in the work of Hadley Wickham [4], each variable measured appears in 
+one column, each different observation of that variable appears in a different 
+row, and there is a single "kind" of data in the tidy data output. 
 
 Each row of the tidy data set contains the mean of all measurements for a 
-particular subject and activity. Each column contains a different variable. All
+particular subject and activity . Each column contains a different variable.
 
+The tidy data set contains 180 observations (30 subjects doing 6 activities each) 
+with 81 variables:
 
-## Code Book
+The columns are as follows:
 
-There are 6 classes of activity:
+1. **subjectLabel**: an identifier indicating the subject (1, 3, 5, 6, 7, 8, 11, 14, 
+15, 16, 17, 19, 21, 22, 23, 25, 26, 27, 28, 29, 30) [int]
 
-Activity Class Labels, Names, and Descriptions
-  classLabel       activityName     description
-1          1            WALKING     
-2          2   WALKING_UPSTAIRS
-3          3 WALKING_DOWNSTAIRS
-4          4            SITTING
-5          5           STANDING
-6          6             LAYING
+2. **activityName**: a label denoting the activity type (WALKING, WALKING_UPSTAIRS, 
+WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) [factor w/6 levels]
+
+3. **Columns 3-81** contain the means for each of the 79 feature vectors for a 
+particular subject and activity [numeric, bounded between -1 and 1]
+
+The tidy data set is written to the tidy.txt.
 
 ## References
 1. Human Activity Recognition Using Smartphones Data Set. URL: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones. Accessed 2014-10-26
