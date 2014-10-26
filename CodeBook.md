@@ -171,7 +171,7 @@ particular subject and activity [numeric, bounded between -1 and 1]:
 8.  **timeDomain.BodyAccelerationJerk.StandardDeviation.XYZ**: numeric [-1,1]
 9.  **timeDomain.BodyGyroscope.Mean.XYZ**: numeric [-1,1]
 10.  **timeDomain.BodyGyroscope.StandardDeviation.XYZ**: numeric [-1,1]
-11.  **timeDomain.BodyGyroscopeJerk.Mean.XYZ       **: numeric [-1,1]
+11.  **timeDomain.BodyGyroscopeJerk.Mean.XYZ**: numeric [-1,1]
 12.  **timeDomain.BodyGyroscopeJerk.StandardDeviation.XYZ**: numeric [-1,1]
 13.  **timeDomain.BodyAccelerationMagnitude.Mean**: numeric [-1,1]
 14.  **timeDomain.BodyAccelerationMagnitude.StandardDeviation**: numeric [-1,1]
